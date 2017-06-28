@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
 export interface Props { }
 export interface State { }
@@ -19,7 +20,10 @@ const styles: any = StyleSheet.create({
   },
 });
 
-export default class App extends React.Component<Props, State> {
+class HomeScreen extends React.Component<Props, State> {
+  static navigationOptions = {
+    title: 'Welcome',
+  };
   render() {
     return (
       <View style={styles.container}>
@@ -30,3 +34,7 @@ export default class App extends React.Component<Props, State> {
     );
   }
 }
+
+export default StackNavigator({
+  Home: { screen: HomeScreen },
+});
