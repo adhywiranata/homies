@@ -10,26 +10,22 @@ const styles: any = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF'
+    backgroundColor: '#F5F5F5'
   },
-  welcome: {
-    fontSize: 20,
+  logo: {
+    fontSize: 30,
     textAlign: 'center',
-    margin: 10
+    margin: 10,
+    fontWeight: 'bold',
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5
-  }
 });
 
 export default class Homies extends React.Component<Props, State> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native TypeScript
+        <Text style={styles.logo}>
+          HOMIES
         </Text>
       </View>
     );
