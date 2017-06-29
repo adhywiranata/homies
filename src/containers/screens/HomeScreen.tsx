@@ -1,17 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { StackNavigator } from 'react-navigation';
+
+import Container from '../../components/core/Container';
 
 export interface Props { }
 export interface State { }
 
 const styles: any = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5F5F5',
-  },
   logo: {
     fontSize: 30,
     textAlign: 'center',
@@ -26,11 +21,11 @@ export default class HomeScreen extends React.Component<Props, State> {
   })
   render() {
     return (
-      <View style={styles.container}>
+      <Container>
         <Text style={styles.logo}>
           HOME
         </Text>
-      </View>
+      </Container>
     );
   }
 }

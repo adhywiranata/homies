@@ -14,15 +14,16 @@
 		"start:android": "npm run build && concurrently -r 'npm run watch' 'react-native run-android'"
 	},
 	"dependencies": {
-		"@types/react-navigation": "^1.0.13",
 		"react": "16.0.0-alpha.12",
 		"react-native": "0.45.1",
-		"react-navigation": "^1.0.0-beta.11"
+		"react-navigation": "^1.0.0-beta.11",
+		"styled-components": "^2.1.0"
 	},
 	"devDependencies": {
 		"@types/jest": "^20.0.2",
 		"@types/react": "^15.0.33",
 		"@types/react-native": "^0.44.14",
+		"@types/react-navigation": "^1.0.13",
 		"babel-jest": "20.0.3",
 		"babel-preset-react-native": "2.0.0",
 		"concurrently": "^3.5.0",
