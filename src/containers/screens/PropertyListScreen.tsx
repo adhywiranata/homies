@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text, View } from 'react-native';
 
 export interface Props { }
 export interface State { }
 
 export default class PropertyListScreen extends React.Component<Props, State> {
-  static navigationOptions = ({ navigation, screenProps }) => ({
+  static navigationOptions = () => ({
     drawerLabel: 'Properties',
   })
   render() {

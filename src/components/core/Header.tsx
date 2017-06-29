@@ -21,7 +21,7 @@ const HeaderText = styled.Text`
   text-align: center;
 `;
 
-export default ({ navigation }) => {
+export default ({ navigation }: { navigation: any }) => {
   const openDrawer = () => navigation.navigate('DrawerOpen');
   return (
     <HeaderWrapper>

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { Image, Text, View } from 'react-native';
 
-import Card from '../core/Card';
 import Button from '../core/Button';
+import Card from '../core/Card';
 
 export default () => (
   <Card>
@@ -13,8 +13,8 @@ export default () => (
     <Text style={{ fontSize: 18, fontWeight: 'bold', margin: 5 }}>Pamoyanan Town House</Text>
     <Text style={{ fontSize: 20, color: '#9B59B6', margin: 5 }}>Rp. 800.000.000</Text>
     <View style={{ flexDirection: 'row', justifyContent: 'space-around', margin: 5 }}>
-      <Button primary label={'Book'} onPress={() => {}} />
-      <Button label={'Save'} onPress={() => {}} />
+      <Button primary={true} label={'Book'} onPress={() => {alert('Booked!')}} />
+      <Button label={'Save'} onPress={() => {alert('Saved!')}} />
     </View>
   </Card>
 );

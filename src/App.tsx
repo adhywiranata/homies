@@ -1,14 +1,14 @@
 import React from 'react';
-import { StackNavigator, DrawerNavigator } from 'react-navigation';
+import { DrawerNavigator } from 'react-navigation';
 
 import ScreenContainer from './components/core/Container';
 import Header from './components/core/Header';
+import HistoryListScreen from './containers/screens/HistoryListScreen';
 import HomeScreen from './containers/screens/HomeScreen';
 import PropertyListScreen from './containers/screens/PropertyListScreen';
-import HistoryListScreen from './containers/screens/HistoryListScreen';
 
 const renderScreen = (WrappedComponent) => {
-  return class extends React.Component {
+  return class extends React.Component<{ navigation: any }, {}> {
     render() {
       return (
         <ScreenContainer>
