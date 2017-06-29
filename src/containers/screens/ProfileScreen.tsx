@@ -2,17 +2,16 @@ import React from 'react';
 import { Text, View } from 'react-native';
 
 export interface Props { navigation: any; }
-// export interface State { }
 
 export default class PropertyListScreen extends React.Component<Props, {}> {
   static navigationOptions = () => ({
-    drawerLabel: 'Properties',
+    drawerLabel: 'Profile',
   })
   render() {
     return (
       <View>
         <Text>
-          PROPERTIES LIST
+          MY PROFILE :)
         </Text>
       </View>
     );

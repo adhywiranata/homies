@@ -3,13 +3,15 @@ import { StatusBar, View } from 'react-native';
 import { DrawerNavigator, StackNavigator } from 'react-navigation';
 
 import { colors } from './constants';
+
 import ActionBanner from './components/core/ActionBanner';
 import ScreenContainer from './components/core/Container';
 import Header from './components/core/Header';
+
 import HistoryListScreen from './containers/screens/HistoryListScreen';
 import HomeScreen from './containers/screens/HomeScreen';
+import ProfileScreen from './containers/screens/ProfileScreen';
 import PropertyDetailScreen from './containers/screens/PropertyDetailScreen';
-import PropertyListScreen from './containers/screens/PropertyListScreen';
 
 const renderScreen = (WrappedComponent) => {
   return class extends React.Component<{ navigation: any }, {}> {
@@ -35,19 +37,17 @@ const MainHomeNavigator = StackNavigator({
 });
 
 const MainNavigator = DrawerNavigator({
-  Home: { screen: renderScreen(HomeScreen) },
-  Main: { screen: MainHomeNavigator },
-  Details: { screen: renderScreen(PropertyDetailScreen) },
-  Properties: { screen: renderScreen(PropertyListScreen) },
-  Histories: { screen: renderScreen(HistoryListScreen) },
+  Home: { screen: MainHomeNavigator },
+  Profile: { screen: renderScreen(ProfileScreen) },
+  History: { screen: renderScreen(HistoryListScreen) },
 });
 
 export default () => (
   <View style={{ flex: 1 }}>
     <StatusBar
        backgroundColor={colors.darkPurple}
-       barStyle="light-content"
-     />
+       barStyle={'light-content'}
+    />
     <MainNavigator />
   </View>
 );
