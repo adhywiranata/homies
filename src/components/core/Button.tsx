@@ -21,7 +21,7 @@ const ButtonText = styled.Text`
 `;
 
 export default (props) => (
-  <Button activeOpacity={0.7} {...props}>
+  <Button activeOpacity={0.7} {...props} onPress={props.onPress}>
     <ButtonText {...props}>{props.label}</ButtonText>
   </Button>
 );
