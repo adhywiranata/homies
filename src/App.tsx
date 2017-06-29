@@ -1,40 +1,14 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { StackNavigator } from 'react-navigation';
+import { StackNavigator, TabNavigator } from 'react-navigation';
 
-export interface Props { }
-export interface State { }
+import HomeScreen from './containers/screens/HomeScreen';
+import PropertyListScreen from './containers/screens/PropertyListScreen';
+import HistoryListScreen from './containers/screens/HistoryListScreen';
 
-const styles: any = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5F5F5'
-  },
-  logo: {
-    fontSize: 30,
-    textAlign: 'center',
-    margin: 10,
-    fontWeight: 'bold',
-  },
-});
-
-class HomeScreen extends React.Component<Props, State> {
-  static navigationOptions = {
-    title: 'Welcome',
-  };
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.logo}>
-          HOMIES
-        </Text>
-      </View>
-    );
-  }
-}
-
+const TabScreenNavigator = TabNavigator({
+  Properties: { screen: PropertyListScreen },
+  Histories: { screen: HistoryListScreen }
+})
 export default StackNavigator({
   Home: { screen: HomeScreen },
+  Properties: { screen: TabScreenNavigator },
 });
