@@ -21,8 +21,8 @@ export default ({ navigation }) => {
       </TouchableOpacity>
       <Text style={{ fontSize: 20, color: '#9B59B6', margin: 5 }}>Rp. 800.000.000</Text>
       <View style={{ flexDirection: 'row', justifyContent: 'space-around', margin: 5 }}>
-        <Button primary={true} label={'Book'} onPress={handleBookItem} />
-        <Button primary={false} label={'Save'} onPress={handleSaveItem} />
+        <Button primary={true} label={'BOOK'} icon={'heart'} onPress={handleBookItem} />
+        <Button primary={false} label={'SAVE'} icon={'bookmark'} onPress={handleSaveItem} />
       </View>
     </Card>
   );
