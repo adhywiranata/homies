@@ -5,7 +5,7 @@ import { colors } from '../../constants';
 
 const Button = styled.TouchableOpacity`
   flex: 1;
-  backgroundColor: ${(props) => props ? colors.mainPurple : 'transparent' };
+  backgroundColor: ${({ primary }: { primary: boolean }) => primary ? colors.mainPurple : 'transparent' };
   padding: 10px;
   margin: 5px;
   borderWidth: 2px;
@@ -15,7 +15,7 @@ const Button = styled.TouchableOpacity`
 const ButtonText = styled.Text`
   fontWeight: bold;
   alignSelf: center;
-  color: ${(props) => props ? colors.white : colors.mainPurple };
+  color: ${({ primary }: { primary: boolean }) => primary ? colors.white : colors.mainPurple };
   borderRadius: 5px;
 `;
 
