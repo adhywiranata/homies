@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 import Container from '../../components/core/Container';
+import Header from '../../components/core/Header';
 
 export interface Props { }
 export interface State { }
@@ -22,6 +23,7 @@ export default class HomeScreen extends React.Component<Props, State> {
   render() {
     return (
       <Container>
+        <Header />
         <Text style={styles.logo}>
           HOME
         </Text>
