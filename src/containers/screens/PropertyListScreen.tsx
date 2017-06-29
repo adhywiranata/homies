@@ -1,7 +1,5 @@
 import React from 'react';
-import { Text } from 'react-native';
-
-import Container from '../../components/core/Container';
+import { View, Text } from 'react-native';
 
 export interface Props { }
 export interface State { }
@@ -12,11 +10,11 @@ export default class PropertyListScreen extends React.Component<Props, State> {
   })
   render() {
     return (
-      <Container>
+      <View>
         <Text>
           PROPERTIES LIST
         </Text>
-      </Container>
+      </View>
     );
   }
 }

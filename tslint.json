@@ -1,5 +1,7 @@
 {
+  "extends": ["tslint:latest", "tslint-react"],
   "rules": {
+    "jsx-wrap-multiline": false,
     "member-access": false,
     "member-ordering": [
       true,
@@ -109,6 +111,7 @@
       true,
       "check-format",
       "allow-leading-underscore",
+      "allow-pascal-case",
       "ban-keywords"
     ],
     "whitespace": [

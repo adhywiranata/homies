@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import styled from 'styled-components/native';
 
 const HeaderWrapper = styled.View`
@@ -8,16 +8,26 @@ const HeaderWrapper = styled.View`
   padding-top: 10;
   background-color: teal;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  flex-direction: row;
 `;
 
 const HeaderText = styled.Text`
   color: white;
   font-weight: bold;
+  flex: 1;
+  text-align: center;
 `;
 
-export default () => (
-  <HeaderWrapper>
-    <HeaderText>HOMIES</HeaderText>
-  </HeaderWrapper>
-)
+export default ({ navigation }) => {
+  const openDrawer = () => navigation.navigate('DrawerOpen');
+  return (
+    <HeaderWrapper>
+      <TouchableOpacity onPress={openDrawer} style={{ flex: 1 }}>
+        <Text style={{ color: 'white' }}>MENU</Text>
+      </TouchableOpacity>
+      <HeaderText>HOMIES</HeaderText>
+      <View style={{ flex: 1 }} />
+    </HeaderWrapper>
+  );
+};
