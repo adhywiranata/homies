@@ -1,6 +1,7 @@
 import React from 'react';
-import { FlatList, Text, View } from 'react-native';
+import { FlatList, View } from 'react-native';
 
+import FilterBar from '../../components/property/FilterBar';
 import PropertyItem from '../../components/property/Item';
 
 export interface Props { navigation: any; }
@@ -15,11 +16,7 @@ export default class HomeScreen extends React.Component<Props, {}> {
     const renderItem = ({item}) => <PropertyItem navigation={navigation} {...item} />;
     return (
       <View style={{ width: '100%', flexDirection: 'column' }}>
-        <View style={{ backgroundColor: '#FFFFFF', padding: 10, borderBottomWidth: 1, borderBottomColor: 'rgba(0,0,0, 0.2)' }}>
-          <Text style={{ fontWeight: 'bold', textAlign: 'center' }}>
-            HOME
-          </Text>
-        </View>
+        <FilterBar />
         <FlatList
           data={[{key: 'a'}, {key: 'b'}, {key: 'c'}, {key: 'd'}, {key: 'e'}]}
           renderItem={renderItem}
