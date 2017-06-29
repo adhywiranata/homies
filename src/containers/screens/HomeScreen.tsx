@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, Text } from 'react-native';
+import { FlatList, View, Text } from 'react-native';
 
 import PropertyItem from '../../components/property/Item';
 
@@ -12,12 +12,18 @@ export default class HomeScreen extends React.Component<Props, State> {
   })
   render() {
     return (
-      <ScrollView style={{ width: '100%', padding: 10, flexDirection: 'column' }}>
-        <Text>
-          HOME
-        </Text>
-        {[1, 2, 3, 4, 5, 6, 7, 8].map((property) => (<PropertyItem key={property} />))}
-      </ScrollView>
+      <View style={{ width: '100%', flexDirection: 'column' }}>
+        <View style={{ backgroundColor: '#FFFFFF', padding: 10, borderBottomWidth: 1, borderBottomColor: 'rgba(0,0,0, 0.2)' }}>
+          <Text style={{ fontWeight: 'bold', textAlign: 'center' }}>
+            HOME
+          </Text>
+        </View>
+        <FlatList
+          data={[{key: 'a'}, {key: 'b'}]}
+          renderItem={({item}) => <PropertyItem />}
+          style={{ padding: 10, height: '84.5%' }}
+        />
+      </View>
     );
   }
 }

@@ -21,11 +21,12 @@ const ButtonText = styled.Text`
 
 interface PropTypes {
   label: string;
-  primary?: any;
+  primary?: boolean;
+  onPress: any;
 }
 
-export default (props: PropTypes) => (
-  <Button activeOpacity={0.7} {...props}>
-    <ButtonText {...props}>{props.label}</ButtonText>
+export default ({ label, primary = false, onPress }: PropTypes) => (
+  <Button activeOpacity={0.7} onPress={onPress} primary={primary}>
+    <ButtonText primary={primary}>{label}</ButtonText>
   </Button>
 );
