@@ -1,6 +1,8 @@
 import React from 'react';
+import { StatusBar, View } from 'react-native';
 import { DrawerNavigator, StackNavigator } from 'react-navigation';
 
+import { colors } from './constants';
 import ActionBanner from './components/core/ActionBanner';
 import ScreenContainer from './components/core/Container';
 import Header from './components/core/Header';
@@ -32,10 +34,20 @@ const MainHomeNavigator = StackNavigator({
   },
 });
 
-export default DrawerNavigator({
+const MainNavigator = DrawerNavigator({
   Home: { screen: renderScreen(HomeScreen) },
   Main: { screen: MainHomeNavigator },
   Details: { screen: renderScreen(PropertyDetailScreen) },
   Properties: { screen: renderScreen(PropertyListScreen) },
   Histories: { screen: renderScreen(HistoryListScreen) },
 });
+
+export default () => (
+  <View style={{ flex: 1 }}>
+    <StatusBar
+       backgroundColor={colors.darkPurple}
+       barStyle="light-content"
+     />
+    <MainNavigator />
+  </View>
+);

@@ -7,7 +7,7 @@ import { colors } from '../../constants';
 const HeaderWrapper = styled.View`
   width: 100%;
   height: 10%;
-  padding-top: 10;
+  padding-top: 0;
   background-color: ${colors.mainPurple};
   align-items: center;
   justify-content: space-between;
