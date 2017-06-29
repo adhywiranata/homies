@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import styled from 'styled-components/native';
 
 import { colors } from '../../constants';
@@ -17,6 +18,7 @@ const HeaderWrapper = styled.View`
 const HeaderText = styled.Text`
   color: ${colors.white};
   font-weight: bold;
+  font-size: 20px;
   flex: 1;
   text-align: center;
 `;
@@ -26,10 +28,12 @@ export default ({ navigation }: { navigation: any }) => {
   return (
     <HeaderWrapper>
       <TouchableOpacity onPress={openDrawer} style={{ flex: 1 }}>
-        <Text style={{ color: colors.white }}>MENU</Text>
+        <Icon name="bars" size={20} color="#FFFFFF" style={{ marginLeft: 10 }} />
       </TouchableOpacity>
-      <HeaderText>HOMIES</HeaderText>
-      <View style={{ flex: 1 }} />
+      <HeaderText>HOME</HeaderText>
+      <TouchableOpacity onPress={openDrawer} style={{ flex: 1 }}>
+        <Icon name="search" size={20} color="#FFFFFF" style={{ marginRight: 10, alignSelf: 'flex-end' }} />
+      </TouchableOpacity>
     </HeaderWrapper>
   );
 };
