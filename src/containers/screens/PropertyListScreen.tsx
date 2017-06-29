@@ -22,13 +22,7 @@ const styles: any = StyleSheet.create({
 
 export default class PropertyListScreen extends React.Component<Props, State> {
   static navigationOptions = ({ navigation, screenProps }) => ({
-    title: 'Properties',
     drawerLabel: 'Properties',
-    headerLeft: (
-      <TouchableOpacity onPress={() => navigation.navigate('DrawerOpen')}>
-        <Text>MENU</Text>
-      </TouchableOpacity>),
-    headerRight: <Text>wow</Text>,
   });
   render() {
     return (

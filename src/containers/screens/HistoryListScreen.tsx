@@ -22,7 +22,6 @@ const styles: any = StyleSheet.create({
 
 export default class HistoryListScreen extends React.Component<Props, State> {
   static navigationOptions = {
-    title: 'History',
     drawerLabel: 'History',
   };
   render() {
