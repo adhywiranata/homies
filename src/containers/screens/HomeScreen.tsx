@@ -3,7 +3,7 @@ import { FlatList, View, Text } from 'react-native';
 
 import PropertyItem from '../../components/property/Item';
 
-export interface Props { }
+export interface Props { navigation: any }
 export interface State { }
 
 export default class HomeScreen extends React.Component<Props, State> {
@@ -21,7 +21,7 @@ export default class HomeScreen extends React.Component<Props, State> {
         </View>
         <FlatList
           data={[{key: 'a'}, {key: 'b'}, {key: 'c'}, {key: 'd'}, {key: 'e'}]}
-          renderItem={({item}) => <PropertyItem navigation={navigation} />}
+          renderItem={({item}) => <PropertyItem navigation={navigation} {...item} />}
           style={{ padding: 10, height: '84.5%' }}
         />
       </View>

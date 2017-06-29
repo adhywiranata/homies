@@ -18,7 +18,7 @@ export default ({ navigation }) => (
     <Text style={{ fontSize: 20, color: '#9B59B6', margin: 5 }}>Rp. 800.000.000</Text>
     <View style={{ flexDirection: 'row', justifyContent: 'space-around', margin: 5 }}>
       <Button primary={true} label={'Book'} onPress={() => { alert('Booked!'); }} />
-      <Button label={'Save'} onPress={() => { alert('Saved!'); }} />
+      <Button primary={false} label={'Save'} onPress={() => { alert('Saved!'); }} />
     </View>
   </Card>
 );

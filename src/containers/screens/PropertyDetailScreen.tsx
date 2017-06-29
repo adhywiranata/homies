@@ -1,9 +1,9 @@
 import React from 'react';
-import { FlatList, View, Text } from 'react-native';
+import { View } from 'react-native';
 
 import PropertyItem from '../../components/property/Item';
 
-export interface Props { }
+export interface Props { navigation: any }
 export interface State { }
 
 export default class PropertyDetailScreen extends React.Component<Props, State> {

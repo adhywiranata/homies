@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-export interface Props { }
+export interface Props { navigation: any }
 export interface State { }
 
 export default class HistoryListScreen extends React.Component<Props, State> {
