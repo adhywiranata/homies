@@ -74,7 +74,7 @@
     "object-literal-sort-keys": false,
     "trailing-comma": [
       true, {
-        "multiline": "never",
+        "multiline": "always",
         "singleline": "never"
       }
     ],

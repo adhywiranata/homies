@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 export interface Props { }
@@ -21,9 +21,15 @@ const styles: any = StyleSheet.create({
 });
 
 export default class PropertyListScreen extends React.Component<Props, State> {
-  static navigationOptions = {
+  static navigationOptions = ({ navigation, screenProps }) => ({
     title: 'Properties',
-  };
+    drawerLabel: 'Properties',
+    headerLeft: (
+      <TouchableOpacity onPress={() => navigation.navigate('DrawerOpen')}>
+        <Text>MENU</Text>
+      </TouchableOpacity>),
+    headerRight: <Text>wow</Text>,
+  });
   render() {
     return (
       <View style={styles.container}>

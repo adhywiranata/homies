@@ -1,14 +1,19 @@
-import { StackNavigator, TabNavigator } from 'react-navigation';
+import { StackNavigator, DrawerNavigator } from 'react-navigation';
 
 import HomeScreen from './containers/screens/HomeScreen';
 import PropertyListScreen from './containers/screens/PropertyListScreen';
 import HistoryListScreen from './containers/screens/HistoryListScreen';
 
-const TabScreenNavigator = TabNavigator({
+export default DrawerNavigator({
   Properties: { screen: PropertyListScreen },
-  Histories: { screen: HistoryListScreen }
-})
-export default StackNavigator({
-  Home: { screen: HomeScreen },
-  Properties: { screen: TabScreenNavigator },
+  Histories: { screen: HistoryListScreen },
 });
+
+// export default StackNavigator({
+//   Properties: { screen: drawerScreenNavigator },
+//   Home: { screen: HomeScreen },
+// }, {
+// navigationOptions: {
+//   headerTintColor: 'transparent',
+//   headerMode: 'screen',
+// });
