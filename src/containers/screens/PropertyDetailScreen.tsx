@@ -3,10 +3,10 @@ import { View } from 'react-native';
 
 import PropertyItem from '../../components/property/Item';
 
-export interface Props { navigation: any }
-export interface State { }
+export interface Props { navigation: any; }
+// export interface State { }
 
-export default class PropertyDetailScreen extends React.Component<Props, State> {
+export default class PropertyDetailScreen extends React.Component<Props, {}> {
   static navigationOptions = () => ({
     drawerLabel: 'PropertyDetailScreen',
   })

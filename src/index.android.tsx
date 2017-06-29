@@ -3,10 +3,7 @@ import { AppRegistry } from 'react-native';
 
 import App from './App';
 
-export interface Props { }
-export interface State { }
-
-export default class Homies extends React.Component<Props, State> {
+export default class Homies extends React.Component<{}, {}> {
   render() {
     return (
       <App />
