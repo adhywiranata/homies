@@ -5,15 +5,7 @@ import PropertyListScreen from './containers/screens/PropertyListScreen';
 import HistoryListScreen from './containers/screens/HistoryListScreen';
 
 export default DrawerNavigator({
+  Home: { screen: HomeScreen },
   Properties: { screen: PropertyListScreen },
   Histories: { screen: HistoryListScreen },
 });
-
-// export default StackNavigator({
-//   Properties: { screen: drawerScreenNavigator },
-//   Home: { screen: HomeScreen },
-// }, {
-// navigationOptions: {
-//   headerTintColor: 'transparent',
-//   headerMode: 'screen',
-// });

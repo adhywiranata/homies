@@ -10,7 +10,7 @@ const styles: any = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5F5F5'
+    backgroundColor: '#F5F5F5',
   },
   logo: {
     fontSize: 30,
@@ -21,21 +21,15 @@ const styles: any = StyleSheet.create({
 });
 
 export default class HomeScreen extends React.Component<Props, State> {
-  static navigationOptions = {
-    title: 'Welcome',
-  };
+  static navigationOptions = ({ navigation, screenProps }) => ({
+    drawerLabel: 'Home',
+  })
   render() {
-    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
         <Text style={styles.logo}>
-          HOMIES
+          HOME
         </Text>
-        <TouchableOpacity onPress={() => navigate('Properties')}>
-          <Text>
-            Go to List
-          </Text>
-        </TouchableOpacity>
       </View>
     );
   }
