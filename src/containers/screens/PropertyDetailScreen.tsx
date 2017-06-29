@@ -11,9 +11,10 @@ export default class PropertyDetailScreen extends React.Component<Props, State> 
     drawerLabel: 'PropertyDetailScreen',
   })
   render() {
+    const { navigation } = this.props;
     return (
       <View style={{ width: '100%', flexDirection: 'column' }}>
-        <PropertyItem />
+        <PropertyItem navigation={navigation} />
       </View>
     );
   }

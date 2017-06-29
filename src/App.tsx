@@ -1,8 +1,8 @@
 import React from 'react';
-import { DrawerNavigator } from 'react-navigation';
+import { DrawerNavigator, StackNavigator } from 'react-navigation';
 
-import ScreenContainer from './components/core/Container';
 import ActionBanner from './components/core/ActionBanner';
+import ScreenContainer from './components/core/Container';
 import Header from './components/core/Header';
 import HistoryListScreen from './containers/screens/HistoryListScreen';
 import HomeScreen from './containers/screens/HomeScreen';
@@ -23,8 +23,18 @@ const renderScreen = (WrappedComponent) => {
   };
 };
 
+const MainHomeNavigator = StackNavigator({
+  HomeStack: { screen: renderScreen(HomeScreen ) },
+  DetailsStack: { screen: renderScreen(PropertyDetailScreen) },
+}, {
+  navigationOptions: {
+    header: null,
+  }
+});
+
 export default DrawerNavigator({
   Home: { screen: renderScreen(HomeScreen) },
+  Main: { screen: MainHomeNavigator },
   Details: { screen: renderScreen(PropertyDetailScreen) },
   Properties: { screen: renderScreen(PropertyListScreen) },
   Histories: { screen: renderScreen(HistoryListScreen) },
