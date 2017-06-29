@@ -7,6 +7,7 @@ import Header from './components/core/Header';
 import HistoryListScreen from './containers/screens/HistoryListScreen';
 import HomeScreen from './containers/screens/HomeScreen';
 import PropertyListScreen from './containers/screens/PropertyListScreen';
+import PropertyDetailScreen from './containers/screens/PropertyDetailScreen';
 
 const renderScreen = (WrappedComponent) => {
   return class extends React.Component<{ navigation: any }, {}> {
@@ -24,6 +25,7 @@ const renderScreen = (WrappedComponent) => {
 
 export default DrawerNavigator({
   Home: { screen: renderScreen(HomeScreen) },
+  Details: { screen: renderScreen(PropertyDetailScreen) },
   Properties: { screen: renderScreen(PropertyListScreen) },
   Histories: { screen: renderScreen(HistoryListScreen) },
 });
