@@ -19,7 +19,7 @@ export default class HomeScreen extends React.Component<Props, State> {
           </Text>
         </View>
         <FlatList
-          data={[{key: 'a'}, {key: 'b'}]}
+          data={[{key: 'a'}, {key: 'b'}, {key: 'c'}, {key: 'd'}, {key: 'e'}]}
           renderItem={({item}) => <PropertyItem />}
           style={{ padding: 10, height: '84.5%' }}
         />
