@@ -29,13 +29,13 @@ const BarLabel = styled.Text`
   font-size: 12;
 `;
 
-export default () => (
+export default ({ toggleModalVisibility }: { toggleModalVisibility: any }) => (
   <BarWrapper>
     <BarButton activeOpacity={0.7}>
       <BarLabel>SORT</BarLabel>
       <Icon name={'sort-amount-asc'} size={15} color={'#666666'} />
     </BarButton>
-    <BarButton activeOpacity={0.7}>
+    <BarButton activeOpacity={0.7} onPress={toggleModalVisibility}>
       <BarLabel>FILTER</BarLabel>
       <Icon name={'filter'} size={15} color={'#666666'} />
     </BarButton>

@@ -1,11 +1,12 @@
 import React from 'react';
-import { FlatList, View } from 'react-native';
+import { FlatList, Modal, View } from 'react-native';
 
 import FilterBar from '../../components/property/FilterBar';
+import FilterModal from '../../components/property/FilterModal';
 import PropertyItem from '../../components/property/Item';
 
 export interface Props { navigation: any; }
-// export interface State { }
+export interface State { modalVisible: boolean; }
 
 const houseData = [
   {key: 'a'},
@@ -22,16 +23,30 @@ const houseData = [
   {key: 'l'},
 ];
 
-export default class HomeScreen extends React.Component<Props, {}> {
+export default class HomeScreen extends React.Component<Props, State> {
+  constructor() {
+    super();
+    this.state = {
+      modalVisible: false,
+    };
+
+    this.toggleModalVisibility = this.toggleModalVisibility.bind(this);
+  }
+
   static navigationOptions = () => ({
     drawerLabel: 'Home',
   })
+
+  toggleModalVisibility() {
+    this.setState({ modalVisible: !this.state.modalVisible });
+  }
   render() {
     const { navigation } = this.props;
+    const { modalVisible } = this.state;
     const renderItem = ({item}) => <PropertyItem navigation={navigation} {...item} />;
     return (
       <View style={{ width: '100%', flexDirection: 'column' }}>
-        <FilterBar />
+        <FilterBar toggleModalVisibility={this.toggleModalVisibility} />
         <FlatList
           data={houseData}
           initialNumToRender={4}
@@ -39,6 +54,14 @@ export default class HomeScreen extends React.Component<Props, {}> {
           renderItem={renderItem}
           style={{ padding: 10, height: '84.5%' }}
         />
+        <Modal
+          animationType={'slide'}
+          transparent={false}
+          visible={modalVisible}
+          onRequestClose={() => {}}
+        >
+          <FilterModal toggleModalVisibility={this.toggleModalVisibility} />
+        </Modal>
       </View>
     );
   }
