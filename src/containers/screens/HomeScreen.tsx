@@ -64,7 +64,7 @@ export default class HomeScreen extends React.Component<Props, State> {
           animationType={'slide'}
           transparent={false}
           visible={modalVisible}
-          onRequestClose={() => {}}
+          onRequestClose={this.toggleModalVisibility}
         >
           <FilterModal toggleModalVisibility={this.toggleModalVisibility} />
         </Modal>
@@ -72,7 +72,7 @@ export default class HomeScreen extends React.Component<Props, State> {
           animationType={'slide'}
           transparent={false}
           visible={searchModalVisible}
-          onRequestClose={() => {}}
+          onRequestClose={toggleSearchModalVisibility}
         >
           <SearchModal toggleSearchModalVisibility={toggleSearchModalVisibility} />
         </Modal>
