@@ -24,6 +24,10 @@ const houseData = [
 ];
 
 export default class HomeScreen extends React.Component<Props, State> {
+  static navigationOptions = () => ({
+    drawerLabel: 'Home',
+  })
+
   constructor() {
     super();
     this.state = {
@@ -32,10 +36,6 @@ export default class HomeScreen extends React.Component<Props, State> {
 
     this.toggleModalVisibility = this.toggleModalVisibility.bind(this);
   }
-
-  static navigationOptions = () => ({
-    drawerLabel: 'Home',
-  })
 
   toggleModalVisibility() {
     this.setState({ modalVisible: !this.state.modalVisible });
@@ -58,7 +58,6 @@ export default class HomeScreen extends React.Component<Props, State> {
           animationType={'slide'}
           transparent={false}
           visible={modalVisible}
-          onRequestClose={() => {}}
         >
           <FilterModal toggleModalVisibility={this.toggleModalVisibility} />
         </Modal>
