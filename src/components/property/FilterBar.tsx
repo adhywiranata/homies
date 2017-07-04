@@ -6,9 +6,9 @@ import { colors } from '../../constants';
 
 const BarWrapper = styled.View`
   background-color: #FFFFFF;
-  border-bottom-width: 1px;
   border-bottom-color: ${colors.shade};
   flex-direction: row;
+  elevation: 1;
 `;
 
 const BarButton = styled.TouchableOpacity`
