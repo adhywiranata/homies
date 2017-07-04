@@ -27,25 +27,25 @@ const BarLabel = styled.Text`
   font-weight: bold;
   text-align: center;
   font-size: 12;
-`
+`;
 
 export default () => (
   <BarWrapper>
     <BarButton activeOpacity={0.7}>
       <BarLabel>SORT</BarLabel>
-      <Icon name="sort-amount-asc" size={15} color="#666666" />
+      <Icon name={'sort-amount-asc'} size={15} color={'#666666'} />
     </BarButton>
     <BarButton activeOpacity={0.7}>
       <BarLabel>FILTER</BarLabel>
-      <Icon name="filter" size={15} color="#666666" />
+      <Icon name={'filter'} size={15} color={'#666666'} />
     </BarButton>
     <BarButton activeOpacity={0.7}>
       <BarLabel>TYPES</BarLabel>
-      <Icon name="sitemap" size={15} color="#666666" />
+      <Icon name={'sitemap'} size={15} color={'#666666'} />
     </BarButton>
     <BarButton activeOpacity={0.7}>
       <BarLabel>NEARBY</BarLabel>
-      <Icon name="map-marker" size={15} color="#666666" />
+      <Icon name={'map-marker'} size={15} color={'#666666'} />
     </BarButton>
   </BarWrapper>
 );

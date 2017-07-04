@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import styled from 'styled-components/native';
 
 import { colors } from '../../constants';
 
@@ -41,7 +41,7 @@ const StyledIcon = styled(Icon)`
 
 export default ({ label, primary = false, icon = '', onPress }: ButtonPropTypes) => (
   <ButtonWrapper activeOpacity={0.7} primary={primary} onPress={onPress}>
-    { icon !== '' && <StyledIcon primary={primary} name={icon} size={20} /> }
+    {icon !== '' && <StyledIcon primary={primary} name={icon} size={20} />}
     <ButtonWrapperText primary={primary}>{label}</ButtonWrapperText>
   </ButtonWrapper>
 );
