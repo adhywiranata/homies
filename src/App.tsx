@@ -40,6 +40,9 @@ const MainNavigator = DrawerNavigator({
   Home: { screen: MainHomeNavigator },
   Profile: { screen: renderScreen(ProfileScreen) },
   History: { screen: renderScreen(HistoryListScreen) },
+  ScoutPlanner: { screen: renderScreen(HistoryListScreen) },
+  BeASeller: { screen: renderScreen(HistoryListScreen) },
+  Logout: { screen: renderScreen(HistoryListScreen) },
 });
 
 export default () => (
