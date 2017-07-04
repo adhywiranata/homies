@@ -34,6 +34,8 @@ export default class HomeScreen extends React.Component<Props, {}> {
         <FilterBar />
         <FlatList
           data={houseData}
+          initialNumToRender={4}
+          windowSize={4}
           renderItem={renderItem}
           style={{ padding: 10, height: '84.5%' }}
         />
