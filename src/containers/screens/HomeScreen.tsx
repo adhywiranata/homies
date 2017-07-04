@@ -58,6 +58,7 @@ export default class HomeScreen extends React.Component<Props, State> {
           animationType={'slide'}
           transparent={false}
           visible={modalVisible}
+          onRequestClose={() => {}}
         >
           <FilterModal toggleModalVisibility={this.toggleModalVisibility} />
         </Modal>
