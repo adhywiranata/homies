@@ -2,9 +2,9 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import { HeaderWrapper, HeaderText } from './HeaderCore';
+import { HeaderText, HeaderWrapper } from './HeaderCore';
 
-export default ({ navigation }: { navigation: any }) => {
+export default ({ navigation, toggleSearchModalVisibility }: { navigation: any, toggleSearchModalVisibility: any }) => {
   const openDrawer = () => navigation.navigate('DrawerOpen');
   return (
     <HeaderWrapper>
@@ -12,7 +12,7 @@ export default ({ navigation }: { navigation: any }) => {
         <Icon name={'bars'} size={20} color={'#FFFFFF'} style={{ marginLeft: 10 }} />
       </TouchableOpacity>
       <HeaderText>HOME</HeaderText>
-      <TouchableOpacity onPress={openDrawer} style={{ flex: 1 }}>
+      <TouchableOpacity onPress={toggleSearchModalVisibility} style={{ flex: 1 }}>
         <Icon name={'search'} size={20} color={'#FFFFFF'} style={{ marginRight: 10, alignSelf: 'flex-end' }} />
       </TouchableOpacity>
     </HeaderWrapper>

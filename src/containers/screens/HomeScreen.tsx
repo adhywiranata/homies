@@ -4,8 +4,13 @@ import { FlatList, Modal, View } from 'react-native';
 import FilterBar from '../../components/property/FilterBar';
 import FilterModal from '../../components/property/FilterModal';
 import PropertyItem from '../../components/property/Item';
+import SearchModal from '../../components/property/SearchModal';
 
-export interface Props { navigation: any; }
+export interface Props {
+  navigation: any;
+  searchModalVisible: boolean;
+  toggleSearchModalVisibility: any;
+}
 export interface State { modalVisible: boolean; }
 
 const houseData = [
@@ -40,8 +45,9 @@ export default class HomeScreen extends React.Component<Props, State> {
   toggleModalVisibility() {
     this.setState({ modalVisible: !this.state.modalVisible });
   }
+
   render() {
-    const { navigation } = this.props;
+    const { navigation, searchModalVisible, toggleSearchModalVisibility } = this.props;
     const { modalVisible } = this.state;
     const renderItem = ({item}) => <PropertyItem navigation={navigation} {...item} />;
     return (
@@ -61,6 +67,14 @@ export default class HomeScreen extends React.Component<Props, State> {
           onRequestClose={() => {}}
         >
           <FilterModal toggleModalVisibility={this.toggleModalVisibility} />
+        </Modal>
+        <Modal
+          animationType={'slide'}
+          transparent={false}
+          visible={searchModalVisible}
+          onRequestClose={() => {}}
+        >
+          <SearchModal toggleSearchModalVisibility={toggleSearchModalVisibility} />
         </Modal>
       </View>
     );
