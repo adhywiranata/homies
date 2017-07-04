@@ -6,6 +6,7 @@
 		"start": "node node_modules/react-native/local-cli/cli.js start",
 		"test": "./node_modules/.bin/jest --coverage",
 		"tsc": "tsc",
+		"tsc-watch": "tsc -w",
 		"clean": "rimraf artifacts",
 		"build": "npm run clean && npm run tsc --",
 		"lint": "tslint src/**/*.ts",

@@ -13,6 +13,9 @@ interface ButtonPropTypes {
 
 interface ButtonWrapperPropTypes {
   primary: boolean;
+  activeOpacity?: number;
+  name?: string;
+  size?: number;
 }
 
 const ButtonWrapper = styled.TouchableOpacity`

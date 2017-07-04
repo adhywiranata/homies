@@ -7,6 +7,21 @@ import PropertyItem from '../../components/property/Item';
 export interface Props { navigation: any; }
 // export interface State { }
 
+const houseData = [
+  {key: 'a'},
+  {key: 'b'},
+  {key: 'c'},
+  {key: 'd'},
+  {key: 'e'},
+  {key: 'f'},
+  {key: 'g'},
+  {key: 'h'},
+  {key: 'i'},
+  {key: 'j'},
+  {key: 'k'},
+  {key: 'l'},
+];
+
 export default class HomeScreen extends React.Component<Props, {}> {
   static navigationOptions = () => ({
     drawerLabel: 'Home',
@@ -18,7 +33,7 @@ export default class HomeScreen extends React.Component<Props, {}> {
       <View style={{ width: '100%', flexDirection: 'column' }}>
         <FilterBar />
         <FlatList
-          data={[{key: 'a'}, {key: 'b'}, {key: 'c'}, {key: 'd'}, {key: 'e'}]}
+          data={houseData}
           renderItem={renderItem}
           style={{ padding: 10, height: '84.5%' }}
         />
