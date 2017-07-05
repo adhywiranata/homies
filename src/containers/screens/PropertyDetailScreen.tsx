@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 
 import PropertyItemDetails from '../../components/property/Item/Details';
 
@@ -12,9 +12,9 @@ export default class PropertyDetailScreen extends React.Component<Props, {}> {
   })
   render() {
     return (
-      <View style={{ width: '100%', flexDirection: 'column' }}>
+      <ScrollView style={{ width: '100%', flexDirection: 'column' }}>
         <PropertyItemDetails />
-      </View>
+      </ScrollView>
     );
   }
 }
