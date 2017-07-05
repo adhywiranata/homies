@@ -1,10 +1,48 @@
 import React from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import styled from 'styled-components/native';
 
 import { colors } from '../../constants';
 import Button from '../core/Button';
 import Card from '../core/Card';
+
+const Title = styled.Text`
+  font-size: 14;
+  color: ${colors.mainPurple};
+  font-weight: bold;
+  margin: 5px;
+`;
+
+const Price = styled.Text`
+  font-size: 20;
+  color: ${colors.mainPurple};
+  margin: 5px;
+`;
+
+const InfoWrapper = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+const ItemInfo = styled.View`
+  flex: 1;
+  flex-direction: row;
+  justify-content: center;
+`;
+
+const ActionButtonWrapper = styled.View`
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 5px;
+`;
+
+const InfoLabel = ({ icon, label }: { icon: string; label: number }) => (
+  <View style={{ flexDirection: 'row', margin: 5 }}>
+    <Icon name={icon} size={14} style={{ marginRight: 5 }} />
+    <Text style={{ fontSize: 12 }}>{label}</Text>
+  </View>
+);
 
 export default ({ navigation }) => {
   const handleItemDetail = () => { navigation.navigate('DetailsStack'); };
@@ -17,46 +55,31 @@ export default ({ navigation }) => {
         style={{ width: '100%', height: 200, resizeMode: 'cover' }}
       />
       <TouchableOpacity onPress={handleItemDetail}>
-        <Text style={{ fontSize: 14, color: colors.mainPurple, fontWeight: 'bold', margin: 5 }}>
+        <Title>
           Rumah Second di Pamoyanan Town House
-        </Text>
+        </Title>
       </TouchableOpacity>
       <Text>House, 100m square</Text>
-      <Text style={{ fontSize: 20, color: colors.mainPurple, margin: 5 }}>Rp. 800.000.000</Text>
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-        <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
-          <View style={{ flexDirection: 'row', margin: 5 }}>
-            <Icon name={'eye'} size={14} style={{ marginRight: 5 }} />
-            <Text style={{ fontSize: 12 }}>1500</Text>
-          </View>
-          <View style={{ flexDirection: 'row', margin: 5 }}>
-            <Icon name={'bookmark'} size={14} style={{ marginRight: 5 }} />
-            <Text style={{ fontSize: 12 }}>150</Text>
-          </View>
-        </View>
-        <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
-          <View style={{ flexDirection: 'row', margin: 5 }}>
-            <Icon name={'bed'} size={14} style={{ marginRight: 5 }} />
-            <Text style={{ fontSize: 12 }}>2</Text>
-          </View>
-          <View style={{ flexDirection: 'row', margin: 5 }}>
-            <Icon name={'s15'} size={14} style={{ marginRight: 5 }} />
-            <Text style={{ fontSize: 12 }}>1</Text>
-          </View>
-          <View style={{ flexDirection: 'row', margin: 5 }}>
-            <Icon name={'car'} size={14} style={{ marginRight: 5 }} />
-            <Text>2</Text>
-          </View>
+      <Price>Rp. 800.000.000</Price>
+      <InfoWrapper>
+        <ItemInfo>
+          <InfoLabel icon={'eye'} label={1527} />
+          <InfoLabel icon={'bookmark'} label={150} />
+        </ItemInfo>
+        <ItemInfo>
+          <InfoLabel icon={'bed'} label={2} />
+          <InfoLabel icon={'s15'} label={1} />
+          <InfoLabel icon={'car'} label={2} />
           <View style={{ flexDirection: 'row', margin: 5 }}>
             <Icon name={'lock'} size={14} style={{ marginRight: 5 }} />
             <Icon name={'check'} size={14} style={{ marginRight: 5, color: 'green' }} />
           </View>
-        </View>
-      </View>
-      <View style={{ flexDirection: 'row', justifyContent: 'space-around', margin: 5 }}>
+        </ItemInfo>
+      </InfoWrapper>
+      <ActionButtonWrapper>
         <Button primary={true} label={'BOOK'} icon={'heart'} onPress={handleBookItem} />
         <Button primary={false} label={'SAVE'} icon={'bookmark'} onPress={handleSaveItem} />
-      </View>
+      </ActionButtonWrapper>
     </Card>
   );
 };
