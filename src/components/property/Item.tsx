@@ -26,34 +26,30 @@ export default ({ navigation }) => {
       <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
         <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
           <View style={{ flexDirection: 'row', margin: 5 }}>
-            <Icon name="eye" size={14} style={{ marginRight: 5 }} />
+            <Icon name={'eye'} size={14} style={{ marginRight: 5 }} />
             <Text style={{ fontSize: 12 }}>1500</Text>
           </View>
           <View style={{ flexDirection: 'row', margin: 5 }}>
-            <Icon name="bookmark" size={14} style={{ marginRight: 5 }} />
+            <Icon name={'bookmark'} size={14} style={{ marginRight: 5 }} />
             <Text style={{ fontSize: 12 }}>150</Text>
-          </View>
-          <View style={{ flexDirection: 'row', margin: 5 }}>
-            <Icon name="heart" size={14} style={{ marginRight: 5 }} />
-            <Text style={{ fontSize: 12 }}>15</Text>
           </View>
         </View>
         <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
           <View style={{ flexDirection: 'row', margin: 5 }}>
-            <Icon name="bed" size={14} style={{ marginRight: 5 }} />
+            <Icon name={'bed'} size={14} style={{ marginRight: 5 }} />
             <Text style={{ fontSize: 12 }}>2</Text>
           </View>
           <View style={{ flexDirection: 'row', margin: 5 }}>
-            <Icon name="s15" size={14} style={{ marginRight: 5 }} />
+            <Icon name={'s15'} size={14} style={{ marginRight: 5 }} />
             <Text style={{ fontSize: 12 }}>1</Text>
           </View>
           <View style={{ flexDirection: 'row', margin: 5 }}>
-            <Icon name="car" size={14} style={{ marginRight: 5 }} />
+            <Icon name={'car'} size={14} style={{ marginRight: 5 }} />
             <Text>2</Text>
           </View>
           <View style={{ flexDirection: 'row', margin: 5 }}>
-            <Icon name="lock" size={14} style={{ marginRight: 5 }} />
-            <Icon name="check" size={14} style={{ marginRight: 5, color: 'green' }} />
+            <Icon name={'lock'} size={14} style={{ marginRight: 5 }} />
+            <Icon name={'check'} size={14} style={{ marginRight: 5, color: 'green' }} />
           </View>
         </View>
       </View>

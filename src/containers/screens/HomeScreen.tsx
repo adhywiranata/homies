@@ -55,8 +55,6 @@ export default class HomeScreen extends React.Component<Props, State> {
         <FilterBar toggleModalVisibility={this.toggleModalVisibility} />
         <FlatList
           data={houseData}
-          initialNumToRender={4}
-          windowSize={4}
           renderItem={renderItem}
           style={{ padding: 10, height: '84.5%' }}
         />
