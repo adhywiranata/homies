@@ -56,7 +56,7 @@ export default class HomeScreen extends React.Component<Props, State> {
         <FlatList
           data={houseData}
           renderItem={renderItem}
-          style={{ padding: 10, height: '84.5%' }}
+          style={{ padding: 10, height: '85%' }}
         />
         <Modal
           animationType={'slide'}

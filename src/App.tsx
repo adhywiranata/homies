@@ -13,12 +13,21 @@ import HomeScreen from './containers/screens/HomeScreen';
 import ProfileScreen from './containers/screens/ProfileScreen';
 import PropertyDetailScreen from './containers/screens/PropertyDetailScreen';
 
+interface Props {
+  navigation: any;
+}
+interface State {
+  searchModalVisible: boolean;
+  actionBannerVisible: boolean;
+}
+
 const renderScreen = (WrappedComponent) => {
-  return class extends React.Component<{ navigation: any }, { searchModalVisible: boolean }> {
+  return class extends React.Component<Props, State> {
     constructor() {
       super();
       this.state = {
         searchModalVisible: false,
+        actionBannerVisible: false,
       };
 
       this.toggleSearchModalVisibility = this.toggleSearchModalVisibility.bind(this);
@@ -37,7 +46,7 @@ const renderScreen = (WrappedComponent) => {
             searchModalVisible={this.state.searchModalVisible}
             toggleSearchModalVisibility={this.toggleSearchModalVisibility}
           />
-          <ActionBanner />
+          {this.state.actionBannerVisible && <ActionBanner />}
         </ScreenContainer>
       );
     }
