@@ -72,7 +72,7 @@ export default class HomeScreen extends React.Component<Props, State> {
           visible={searchModalVisible}
           onRequestClose={toggleSearchModalVisibility}
         >
-          <SearchModal toggleSearchModalVisibility={toggleSearchModalVisibility} />
+          <SearchModal navigation={navigation} toggleSearchModalVisibility={toggleSearchModalVisibility} />
         </Modal>
       </View>
     );

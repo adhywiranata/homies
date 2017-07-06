@@ -1,10 +1,11 @@
 import React from 'react';
-import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { FlatList, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { HeaderWrapper } from '../core/HeaderCore';
+import SearchResultItem from './Item/searchResult';
 
-export default ({ toggleSearchModalVisibility }: { toggleSearchModalVisibility: any }) => (
+export default ({ toggleSearchModalVisibility, navigation }: { toggleSearchModalVisibility: any, navigation: any }) => (
   <View style={{ flex: 1 }}>
     <HeaderWrapper style={{ elevation: 1, justifyContent: 'space-between' }}>
       <TouchableOpacity onPress={toggleSearchModalVisibility} style={{ width: 30, padding: 10, paddingLeft: 0 }}>
@@ -25,7 +26,12 @@ export default ({ toggleSearchModalVisibility }: { toggleSearchModalVisibility: 
       </TouchableOpacity>
     </HeaderWrapper>
     <View>
-      <Text>Search Results</Text>
+      <Text style={{ fontWeight: 'bold', padding: 5 }}>Search Results</Text>
     </View>
+    <FlatList
+      data={[{ key: 'a' }, { key: 'b' }, { key: 'c' }, { key: 'd' }]}
+      renderItem={({item}) => <SearchResultItem navigation={navigation} {...item} />}
+      style={{ padding: 10, height: '91.5%' }}
+    />
   </View>
 );
