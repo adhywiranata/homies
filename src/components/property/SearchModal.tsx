@@ -30,7 +30,7 @@ export default ({ toggleSearchModalVisibility, navigation }: { toggleSearchModal
     </View>
     <FlatList
       data={[{ key: 'a' }, { key: 'b' }, { key: 'c' }, { key: 'd' }]}
-      renderItem={({item}) => <SearchResultItem navigation={navigation} {...item} />}
+      renderItem={({item}) => <SearchResultItem navigation={navigation} {...item} toggleSearchModalVisibility={toggleSearchModalVisibility} />}
       style={{ padding: 10, height: '91.5%' }}
     />
   </View>
