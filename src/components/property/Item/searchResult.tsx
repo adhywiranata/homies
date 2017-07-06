@@ -25,7 +25,7 @@ export default ({ navigation, toggleSearchModalVisibility }) => {
       <Card style={{ flexDirection: 'row', elevation: 0, borderBottomWidth: 1, borderBottomColor: 'rgba(0,0,0,0.1)', paddingBottom: 10 }}>
         <Icon name={'home'} size={30} style={{ marginRight: 10, color: colors.mainPurple }} />
         <View style={{ flex: 1, padding: 0 }}>
-          <Title style={{ marginTop: -5 }}>Rumah Keren Pamoyanan Town House</Title>
+          <Title>Rumah Keren Pamoyanan Town House</Title>
           <Text style={{ paddingLeft: 5 }}>House, 100m square</Text>
         </View>
         <Icon name={'external-link'} size={20} style={{ color: 'rgba(0,0,0,0.5)' }} />
