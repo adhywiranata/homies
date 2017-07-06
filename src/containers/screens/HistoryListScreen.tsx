@@ -33,7 +33,7 @@ export default class HistoryListScreen extends React.Component<Props, {}> {
         <FlatList
           data={historyData}
           renderItem={renderItem}
-          style={{ padding: 10, height: '85%' }}
+          style={{ padding: 10, height: '91.5%' }}
         />
       </View>
     );

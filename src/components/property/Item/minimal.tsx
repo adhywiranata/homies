@@ -21,7 +21,7 @@ export default ({ navigation }) => {
       <View style={{ flex: 0.5 }}>
         <Image
           source={{ uri: 'https://d3p0bla3numw14.cloudfront.net/house/ho23/2383609/hos2383609-disewa-di-pamoyanan_bogor.jpg'}}
-          style={{ width: '100%', height: 80, resizeMode: 'cover' }}
+          style={{ width: '100%', height: 100, resizeMode: 'cover' }}
         />
       </View>
       <View style={{ flex: 1, padding: 5 }}>
