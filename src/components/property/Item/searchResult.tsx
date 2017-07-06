@@ -1,21 +1,15 @@
 import React from 'react';
-import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { colors } from '../../../constants';
-import Button from '../../core/Button';
 import Card from '../../core/Card';
 
 import {
-  ActionButtonWrapper,
-  InfoLabel,
-  InfoWrapper,
-  ItemInfo,
-  Price,
   Title,
 } from './core';
 
-export default ({ navigation, toggleSearchModalVisibility }) => {
+export default ({ navigation, toggleSearchModalVisibility }: { navigation: any; toggleSearchModalVisibility: any }) => {
   const handlePress = () => {
     toggleSearchModalVisibility();
     navigation.navigate('DetailsStack');

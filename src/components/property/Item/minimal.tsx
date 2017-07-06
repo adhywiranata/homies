@@ -1,15 +1,9 @@
 import React from 'react';
 import { Image, Text, View } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 
-import Button from '../../core/Button';
 import Card from '../../core/Card';
 
 import {
-  ActionButtonWrapper,
-  InfoLabel,
-  InfoWrapper,
-  ItemInfo,
   Price,
   TitleLink,
 } from './core';
