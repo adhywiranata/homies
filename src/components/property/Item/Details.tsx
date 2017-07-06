@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, TouchableOpacity, Text, View } from 'react-native';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 // import Button from '../../core/Button';
