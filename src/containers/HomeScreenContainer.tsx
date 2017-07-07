@@ -10,7 +10,6 @@ export interface Props {
 }
 export interface State {
   modalVisible: boolean;
-  toggleModalVisibility: any;
 }
 
 const houseData = [
