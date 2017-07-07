@@ -9,7 +9,7 @@ import ScreenContainer from './components/core/Container';
 import Header from './components/core/Header';
 
 import HistoryListScreen from './containers/screens/HistoryListScreen';
-import HomeScreen from './containers/screens/HomeScreen';
+import HomeScreenContainer from './containers/HomeScreenContainer';
 import ProfileScreen from './containers/screens/ProfileScreen';
 import PropertyDetailScreen from './containers/screens/PropertyDetailScreen';
 
@@ -54,7 +54,7 @@ const renderScreen = (WrappedComponent) => {
 };
 
 const MainHomeNavigator = StackNavigator({
-  HomeStack: { screen: renderScreen(HomeScreen ) },
+  HomeStack: { screen: renderScreen(HomeScreenContainer) },
   DetailsStack: { screen: renderScreen(PropertyDetailScreen) },
 }, {
   navigationOptions: {

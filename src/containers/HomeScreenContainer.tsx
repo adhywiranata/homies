@@ -1,18 +1,17 @@
 import axios from 'axios';
 import React from 'react';
-import { FlatList, Modal, View } from 'react-native';
 
-import FilterBar from '../../components/property/FilterBar';
-import FilterModal from '../../components/property/FilterModal';
-import PropertyItem from '../../components/property/Item';
-import SearchModal from '../../components/property/SearchModal';
+import HomeScreen from '../components/screens/HomeScreen';
 
 export interface Props {
   navigation: any;
   searchModalVisible: boolean;
   toggleSearchModalVisibility: any;
 }
-export interface State { modalVisible: boolean; }
+export interface State {
+  modalVisible: boolean;
+  toggleModalVisibility: any;
+}
 
 const houseData = [
   {key: 'a'},
@@ -29,7 +28,7 @@ const houseData = [
   {key: 'l'},
 ];
 
-export default class HomeScreen extends React.Component<Props, State> {
+export default class extends React.Component<Props, State> {
   static navigationOptions = () => ({
     drawerLabel: 'Home',
   })
@@ -81,32 +80,15 @@ export default class HomeScreen extends React.Component<Props, State> {
   render() {
     const { navigation, searchModalVisible, toggleSearchModalVisibility } = this.props;
     const { modalVisible } = this.state;
-    const renderItem = ({item}) => <PropertyItem navigation={navigation} {...item} />;
     return (
-      <View style={{ width: '100%', flexDirection: 'column' }}>
-        <FilterBar toggleModalVisibility={this.toggleModalVisibility} />
-        <FlatList
-          data={houseData}
-          renderItem={renderItem}
-          style={{ padding: 10, height: '85%' }}
-        />
-        <Modal
-          animationType={'slide'}
-          transparent={false}
-          visible={modalVisible}
-          onRequestClose={this.toggleModalVisibility}
-        >
-          <FilterModal toggleModalVisibility={this.toggleModalVisibility} />
-        </Modal>
-        <Modal
-          animationType={'slide'}
-          transparent={false}
-          visible={searchModalVisible}
-          onRequestClose={toggleSearchModalVisibility}
-        >
-          <SearchModal navigation={navigation} toggleSearchModalVisibility={toggleSearchModalVisibility} />
-        </Modal>
-      </View>
+      <HomeScreen
+        houseData={houseData}
+        navigation={navigation}
+        modalVisible={modalVisible}
+        searchModalVisible={searchModalVisible}
+        toggleModalVisibility={this.toggleModalVisibility}
+        toggleSearchModalVisibility={toggleSearchModalVisibility}
+      />
     );
   }
 }
