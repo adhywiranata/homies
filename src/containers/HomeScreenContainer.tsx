@@ -10,6 +10,7 @@ export interface Props {
 }
 export interface State {
   modalVisible: boolean;
+  displayRumahCategory: boolean;
 }
 
 const houseData = [
@@ -36,9 +37,11 @@ export default class extends React.Component<Props, State> {
     super();
     this.state = {
       modalVisible: false,
+      displayRumahCategory: true,
     };
 
     this.toggleModalVisibility = this.toggleModalVisibility.bind(this);
+    this.toggleRumahCategoryFilter = this.toggleRumahCategoryFilter.bind(this);
   }
 
   componentDidMount() {
@@ -76,14 +79,20 @@ export default class extends React.Component<Props, State> {
     this.setState({ modalVisible: !this.state.modalVisible });
   }
 
+  toggleRumahCategoryFilter() {
+    this.setState({ displayRumahCategory: !this.state.displayRumahCategory });
+  }
+
   render() {
     const { navigation, searchModalVisible, toggleSearchModalVisibility } = this.props;
-    const { modalVisible } = this.state;
+    const { modalVisible, displayRumahCategory } = this.state;
     return (
       <HomeScreen
         houseData={houseData}
         navigation={navigation}
         modalVisible={modalVisible}
+        displayRumahCategory={displayRumahCategory}
+        toggleRumahCategoryFilter={this.toggleRumahCategoryFilter}
         searchModalVisible={searchModalVisible}
         toggleModalVisibility={this.toggleModalVisibility}
         toggleSearchModalVisibility={toggleSearchModalVisibility}

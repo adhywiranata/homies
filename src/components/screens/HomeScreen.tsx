@@ -9,8 +9,10 @@ import SearchModal from '../property/SearchModal';
 interface Props {
   navigation: any;
   modalVisible: boolean;
+  displayRumahCategory: boolean;
   searchModalVisible: boolean;
   toggleModalVisibility: any;
+  toggleRumahCategoryFilter: any;
   toggleSearchModalVisibility: any;
   houseData: any;
 }
@@ -18,15 +20,19 @@ interface Props {
 export default ({
   navigation,
   modalVisible,
+  displayRumahCategory,
   searchModalVisible,
   toggleModalVisibility,
+  toggleRumahCategoryFilter,
   toggleSearchModalVisibility,
   houseData,
 }: Props) => {
   const renderItem = ({item}) => <PropertyItem navigation={navigation} {...item} />;
   return (
     <View style={{ width: '100%', flexDirection: 'column' }}>
-      <FilterBar toggleModalVisibility={toggleModalVisibility} />
+      <FilterBar
+        toggleModalVisibility={toggleModalVisibility}
+      />
       <FlatList
         data={houseData}
         renderItem={renderItem}
@@ -38,7 +44,11 @@ export default ({
         visible={modalVisible}
         onRequestClose={toggleModalVisibility}
       >
-        <FilterModal toggleModalVisibility={toggleModalVisibility} />
+        <FilterModal
+          displayRumahCategory={displayRumahCategory}
+          toggleModalVisibility={toggleModalVisibility}
+          toggleRumahCategoryFilter={toggleRumahCategoryFilter}
+        />
       </Modal>
       <Modal
         animationType={'slide'}
