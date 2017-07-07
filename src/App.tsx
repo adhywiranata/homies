@@ -8,10 +8,10 @@ import ActionBanner from './components/core/ActionBanner';
 import ScreenContainer from './components/core/Container';
 import Header from './components/core/Header';
 
-import HistoryListScreen from './containers/screens/HistoryListScreen';
+import HistoryListScreenContainer from './containers/HistoryListScreenContainer';
 import HomeScreenContainer from './containers/HomeScreenContainer';
-import ProfileScreen from './containers/screens/ProfileScreen';
-import PropertyDetailScreen from './containers/screens/PropertyDetailScreen';
+import ProfileScreenContainer from './containers/ProfileScreenContainer';
+import PropertyDetailScreenContainer from './containers/PropertyDetailScreenContainer';
 
 interface Props {
   navigation: any;
@@ -55,7 +55,7 @@ const renderScreen = (WrappedComponent) => {
 
 const MainHomeNavigator = StackNavigator({
   HomeStack: { screen: renderScreen(HomeScreenContainer) },
-  DetailsStack: { screen: renderScreen(PropertyDetailScreen) },
+  DetailsStack: { screen: renderScreen(PropertyDetailScreenContainer) },
 }, {
   navigationOptions: {
     header: null,
@@ -64,11 +64,11 @@ const MainHomeNavigator = StackNavigator({
 
 const MainNavigator = DrawerNavigator({
   Home: { screen: MainHomeNavigator },
-  Profile: { screen: renderScreen(ProfileScreen) },
-  History: { screen: renderScreen(HistoryListScreen) },
-  ScoutPlanner: { screen: renderScreen(HistoryListScreen) },
-  BeASeller: { screen: renderScreen(HistoryListScreen) },
-  Logout: { screen: renderScreen(HistoryListScreen) },
+  Profile: { screen: renderScreen(ProfileScreenContainer) },
+  History: { screen: renderScreen(HistoryListScreenContainer) },
+  ScoutPlanner: { screen: renderScreen(HistoryListScreenContainer) },
+  BeASeller: { screen: renderScreen(HistoryListScreenContainer) },
+  Logout: { screen: renderScreen(HistoryListScreenContainer) },
 });
 
 export default () => (
