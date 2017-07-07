@@ -32,16 +32,12 @@ const BarLabel = styled.Text`
 export default ({ toggleModalVisibility }: { toggleModalVisibility: any }) => (
   <BarWrapper>
     <BarButton activeOpacity={0.7}>
-      <BarLabel>SORT</BarLabel>
+      <BarLabel>URUTKAN</BarLabel>
       <Icon name={'sort-amount-asc'} size={15} color={'#666666'} />
     </BarButton>
     <BarButton activeOpacity={0.7} onPress={toggleModalVisibility}>
       <BarLabel>FILTER</BarLabel>
       <Icon name={'filter'} size={15} color={'#666666'} />
-    </BarButton>
-    <BarButton activeOpacity={0.7}>
-      <BarLabel>TYPES</BarLabel>
-      <Icon name={'sitemap'} size={15} color={'#666666'} />
     </BarButton>
     <BarButton activeOpacity={0.7}>
       <BarLabel>NEARBY</BarLabel>
