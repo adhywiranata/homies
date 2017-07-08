@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import { ActivityIndicator, Text, TouchableOpacity, View } from 'react-native';
 
 import HomeScreen from '../components/screens/HomeScreen';
 
@@ -11,6 +12,8 @@ export interface Props {
 export interface State {
   modalVisible: boolean;
   displayRumahCategory: boolean;
+  isFetchingPropertyData: boolean;
+  fetchPropertyDataSuccess: boolean;
 }
 
 const houseData = [
@@ -38,26 +41,39 @@ export default class extends React.Component<Props, State> {
     this.state = {
       modalVisible: false,
       displayRumahCategory: true,
+      isFetchingPropertyData: true,
+      fetchPropertyDataSuccess: false,
     };
 
+    this.fetchData = this.fetchData.bind(this);
     this.toggleModalVisibility = this.toggleModalVisibility.bind(this);
     this.toggleRumahCategoryFilter = this.toggleRumahCategoryFilter.bind(this);
   }
 
   componentDidMount() {
+    this.fetchData();
+  }
+
+  fetchData() {
+    this.setState({ isFetchingPropertyData: true });
     axios.post('https://us-central1-homies-3aa8b.cloudfunctions.net/api/graphql', {
     query: `
       query Properties {
         properties {
           id
           name
-          description
           category
           price
+          width
           facilities {
             bedroom
             bathroom
             security
+            carSlot
+          }
+          impressions {
+            views
+            saves
           }
           images {
             url
@@ -65,14 +81,16 @@ export default class extends React.Component<Props, State> {
         }
       }
     `,
-  })
-  .then((response) => {
-    const properties = response.data.data.properties;
-    console.log(properties);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+    })
+    .then((response) => {
+      const properties = response.data.data.properties;
+      console.log(properties);
+      this.setState({ isFetchingPropertyData: false, fetchPropertyDataSuccess: true });
+    })
+    .catch((error) => {
+      console.log(error);
+      this.setState({ isFetchingPropertyData: false, fetchPropertyDataSuccess: false });
+    });
   }
 
   toggleModalVisibility() {
@@ -85,18 +103,40 @@ export default class extends React.Component<Props, State> {
 
   render() {
     const { navigation, searchModalVisible, toggleSearchModalVisibility } = this.props;
-    const { modalVisible, displayRumahCategory } = this.state;
-    return (
-      <HomeScreen
-        houseData={houseData}
-        navigation={navigation}
-        modalVisible={modalVisible}
-        displayRumahCategory={displayRumahCategory}
-        toggleRumahCategoryFilter={this.toggleRumahCategoryFilter}
-        searchModalVisible={searchModalVisible}
-        toggleModalVisibility={this.toggleModalVisibility}
-        toggleSearchModalVisibility={toggleSearchModalVisibility}
-      />
-    );
+    const { modalVisible, displayRumahCategory, isFetchingPropertyData, fetchPropertyDataSuccess } = this.state;
+    if(isFetchingPropertyData) {
+      return <ActivityIndicator size={'large'} style={{ marginTop: 20 }} />
+    }
+    if(!isFetchingPropertyData && fetchPropertyDataSuccess) {
+      return (
+        <HomeScreen
+          houseData={houseData}
+          navigation={navigation}
+          modalVisible={modalVisible}
+          displayRumahCategory={displayRumahCategory}
+          toggleRumahCategoryFilter={this.toggleRumahCategoryFilter}
+          searchModalVisible={searchModalVisible}
+          toggleModalVisibility={this.toggleModalVisibility}
+          toggleSearchModalVisibility={toggleSearchModalVisibility}
+        />
+      );
+    }
+    if(!isFetchingPropertyData && !fetchPropertyDataSuccess) {
+      return (
+        <View style={{ alignItems: 'center' }}>
+          <Text style={{ margin: 30, textAlign: 'center' }}>
+            Ups, sepertinya ada masalah teknis dari sisi kami. {"\n"}
+            Silakan reload untuk memproses kembali.
+          </Text>
+          <TouchableOpacity
+            onPress={this.fetchData}
+            style={{ borderRadius: 2, borderColor: 'rgba(0,0,0,0.5)', borderWidth: 1, padding: 5 }}
+          >
+            <Text>Coba Lagi</Text>
+          </TouchableOpacity>
+        </View>
+      );
+    }
+    return null;
   }
 }

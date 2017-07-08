@@ -57,3 +57,6 @@ artifacts
 
 # tests
 coverage
+
+# android
+android/gradle.properties
