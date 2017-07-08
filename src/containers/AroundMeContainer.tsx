@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { PermissionsAndroid, Platform, View } from 'react-native';
 import MapView from 'react-native-maps';
 
 export interface Props { navigation: any; }
@@ -12,6 +12,7 @@ export default class extends React.Component<Props, State> {
 
   constructor() {
     super();
+    // this.mounted = false;
     this.state = {
       region: {
         latitude: -6.1754,
@@ -55,7 +56,20 @@ export default class extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    this.fetchLocation();
+    // this.mounted = true;
+    if (Platform.OS === 'android') {
+      PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+        {
+          'title': 'Location Permission',
+          'message': 'We need ur location :)'
+        }
+      ).then(granted => {
+          if (granted) this.fetchLocation();
+        });
+    } else {
+      this.fetchLocation();
+    }
   }
 
   fetchLocation() {
@@ -93,6 +107,7 @@ export default class extends React.Component<Props, State> {
         >
           { userMarker.latlng && (
             <MapView.Marker
+              anchor={{ x: 0.5, y: 0.5 }}
               coordinate={userMarker.latlng}
               title={'me'}
               description={'me'}
