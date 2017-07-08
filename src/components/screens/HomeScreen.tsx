@@ -8,6 +8,8 @@ import SearchModal from '../property/SearchModal';
 
 interface Props {
   navigation: any;
+  isRefreshingPropertyData: boolean;
+  refreshList: any;
   modalVisible: boolean;
   displayRumahCategory: boolean;
   searchModalVisible: boolean;
@@ -20,6 +22,8 @@ interface Props {
 export default ({
   navigation,
   modalVisible,
+  isRefreshingPropertyData,
+  refreshList,
   displayRumahCategory,
   searchModalVisible,
   toggleModalVisibility,
@@ -38,7 +42,10 @@ export default ({
       <FlatList
         data={propertyData}
         renderItem={renderItem}
-        style={{ padding: 10, height: '85%' }}
+        refreshing={isRefreshingPropertyData}
+        onRefresh={refreshList}
+        keyExtractor={item => item.id}
+        style={{ width: '100%', height: '85%', flexDirection: 'column' }}
       />
       <Modal
         animationType={'slide'}

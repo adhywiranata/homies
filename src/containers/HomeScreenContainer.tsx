@@ -14,6 +14,7 @@ export interface State {
   modalVisible: boolean;
   displayRumahCategory: boolean;
   isFetchingPropertyData: boolean;
+  isRefreshingPropertyData: boolean;
   fetchPropertyDataSuccess: boolean;
 }
 
@@ -44,20 +45,22 @@ export default class extends React.Component<Props, State> {
       modalVisible: false,
       displayRumahCategory: true,
       isFetchingPropertyData: true,
+      isRefreshingPropertyData: false,
       fetchPropertyDataSuccess: false,
     };
 
     this.fetchData = this.fetchData.bind(this);
+    this.refreshList = this.refreshList.bind(this);
     this.toggleModalVisibility = this.toggleModalVisibility.bind(this);
     this.toggleRumahCategoryFilter = this.toggleRumahCategoryFilter.bind(this);
   }
 
   componentDidMount() {
+    this.setState({ isFetchingPropertyData: true });
     this.fetchData();
   }
 
   fetchData() {
-    this.setState({ isFetchingPropertyData: true });
     axios.post('https://us-central1-homies-3aa8b.cloudfunctions.net/api/graphql', {
     query: `
       query Properties {
@@ -86,17 +89,25 @@ export default class extends React.Component<Props, State> {
     })
     .then((response) => {
       const properties = response.data.data.properties;
-      console.log(properties);
       this.setState({
-        propertyData: properties.map(property => ({...property, key: property.id })),
+        propertyData: properties,
         isFetchingPropertyData: false,
+        isRefreshingPropertyData: false,
         fetchPropertyDataSuccess: true,
       });
     })
-    .catch((error) => {
-      console.log(error);
-      this.setState({ isFetchingPropertyData: false, fetchPropertyDataSuccess: false });
+    .catch(() => {
+      this.setState({
+        isFetchingPropertyData: false,
+        isRefreshingPropertyData: false,
+        fetchPropertyDataSuccess: false,
+      });
     });
+  }
+
+  refreshList() {
+    this.setState({ isRefreshingPropertyData: true });
+    this.fetchData();
   }
 
   toggleModalVisibility() {
@@ -109,7 +120,7 @@ export default class extends React.Component<Props, State> {
 
   render() {
     const { navigation, searchModalVisible, toggleSearchModalVisibility } = this.props;
-    const { propertyData, modalVisible, displayRumahCategory, isFetchingPropertyData, fetchPropertyDataSuccess } = this.state;
+    const { propertyData, isRefreshingPropertyData, modalVisible, displayRumahCategory, isFetchingPropertyData, fetchPropertyDataSuccess } = this.state;
     if(isFetchingPropertyData) {
       return <ActivityIndicator size={'large'} style={{ marginTop: 20 }} />
     }
@@ -118,6 +129,8 @@ export default class extends React.Component<Props, State> {
         <HomeScreen
           propertyData={propertyData}
           navigation={navigation}
+          isRefreshingPropertyData={isRefreshingPropertyData}
+          refreshList={this.refreshList}
           modalVisible={modalVisible}
           displayRumahCategory={displayRumahCategory}
           toggleRumahCategoryFilter={this.toggleRumahCategoryFilter}

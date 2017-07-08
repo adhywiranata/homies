@@ -19,7 +19,7 @@ export default ({ navigation, property }: { navigation: any, property: any }) =>
   const handleBookItem = () => { alert('Booked!'); };
   const handleSaveItem = () => { alert('Saved'); };
   return (
-    <Card>
+    <Card style={{ alignSelf: 'center', width: '95%', marginTop: 10 }}>
       <Image
         source={{ uri: property.images[0].url}}
         style={{ width: '100%', height: 200, resizeMode: 'cover' }}
