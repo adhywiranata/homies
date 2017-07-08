@@ -3614,6 +3614,10 @@ react-native-elements@^0.13.0:
     react-native-side-menu "^0.20.1"
     react-native-tab-navigator "^0.3.3"
 
+react-native-fbsdk@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/react-native-fbsdk/-/react-native-fbsdk-0.6.1.tgz#268bdbda5a16f5341ca43e3fa1beb88801e35a92"
+
 react-native-icon-checkbox@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/react-native-icon-checkbox/-/react-native-icon-checkbox-1.2.0.tgz#a5b78c9da2af647c686916883a5b3a9b65b50ee6"

@@ -8,6 +8,7 @@ import ActionBanner from './components/core/ActionBanner';
 import ScreenContainer from './components/core/Container';
 import Header from './components/core/Header';
 
+import SigninContainer from './containers/SigninContainer';
 import HistoryListScreenContainer from './containers/HistoryListScreenContainer';
 import HomeScreenContainer from './containers/HomeScreenContainer';
 import ProfileScreenContainer from './containers/ProfileScreenContainer';
@@ -64,6 +65,7 @@ const MainHomeNavigator = StackNavigator({
 });
 
 const MainNavigator = DrawerNavigator({
+  Signin: { screen: SigninContainer },
   Home: { screen: MainHomeNavigator },
   Profile: { screen: renderScreen(ProfileScreenContainer) },
   History: { screen: renderScreen(HistoryListScreenContainer) },
