@@ -14,34 +14,38 @@ import {
   InfoLabel,
 } from './core';
 
-export default ({ navigation }) => {
+export default ({ navigation, property }: { navigation: any, property: any }) => {
   const handleItemDetail = () => { navigation.navigate('DetailsStack'); };
   const handleBookItem = () => { alert('Booked!'); };
   const handleSaveItem = () => { alert('Saved'); };
   return (
     <Card>
       <Image
-        source={{ uri: 'https://d3p0bla3numw14.cloudfront.net/house/ho23/2383609/hos2383609-disewa-di-pamoyanan_bogor.jpg'}}
+        source={{ uri: property.images[0].url}}
         style={{ width: '100%', height: 200, resizeMode: 'cover' }}
       />
       <TitleLink
-        label={'Rumah Keren Pamoyanan Town House'}
+        label={property.name}
         handleItemDetail={handleItemDetail}
       />
-      <Text>House, 100m square</Text>
-      <Price>Rp. 800.000.000</Price>
+      <Text>{property.category}, {property.width}m square</Text>
+      <Price>{property.price}</Price>
       <InfoWrapper>
         <ItemInfo>
-          <InfoLabel icon={'eye'} label={1527} />
-          <InfoLabel icon={'bookmark'} label={150} />
+          <InfoLabel icon={'eye'} label={property.impressions.views} />
+          <InfoLabel icon={'bookmark'} label={property.impressions.saves} />
         </ItemInfo>
         <ItemInfo>
-          <InfoLabel icon={'bed'} label={2} />
-          <InfoLabel icon={'s15'} label={1} />
-          <InfoLabel icon={'car'} label={2} />
+          <InfoLabel icon={'bed'} label={property.facilities.bedroom} />
+          <InfoLabel icon={'s15'} label={property.facilities.bathroom} />
+          <InfoLabel icon={'car'} label={property.facilities.carSlot} />
           <View style={{ flexDirection: 'row', margin: 5 }}>
             <Icon name={'lock'} size={14} style={{ marginRight: 5 }} />
-            <Icon name={'check'} size={14} style={{ marginRight: 5, color: 'green' }} />
+            { property.facilities.security ? (
+              <Icon name={'check'} size={14} style={{ marginRight: 5, color: 'green' }} />
+            ) : (                
+              <Icon name={'close'} size={14} style={{ marginRight: 5, color: 'red' }} />    
+            )}
           </View>
         </ItemInfo>
       </InfoWrapper>

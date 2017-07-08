@@ -27,7 +27,9 @@ export default ({
   toggleSearchModalVisibility,
   propertyData,
 }: Props) => {
-  const renderItem = ({item}) => <PropertyItem navigation={navigation} {...item} />;
+  const renderItem = ({ item }) => {
+    return <PropertyItem navigation={navigation} property={item} />
+  };
   return (
     <View style={{ width: '100%', flexDirection: 'column' }}>
       <FilterBar
