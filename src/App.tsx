@@ -64,10 +64,10 @@ const MainHomeNavigator = StackNavigator({
 });
 
 const MainNavigator = DrawerNavigator({
-  MapAroundMe: { screen: renderScreen(AroundMeContainer) },
   Home: { screen: MainHomeNavigator },
   Profile: { screen: renderScreen(ProfileScreenContainer) },
   History: { screen: renderScreen(HistoryListScreenContainer) },
+  MapAroundMe: { screen: renderScreen(AroundMeContainer) },
   ScoutPlanner: { screen: renderScreen(HistoryListScreenContainer) },
   BeASeller: { screen: renderScreen(HistoryListScreenContainer) },
   Logout: { screen: renderScreen(HistoryListScreenContainer) },
