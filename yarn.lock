@@ -3618,6 +3618,10 @@ react-native-icon-checkbox@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/react-native-icon-checkbox/-/react-native-icon-checkbox-1.2.0.tgz#a5b78c9da2af647c686916883a5b3a9b65b50ee6"
 
+react-native-maps@^0.15.3:
+  version "0.15.3"
+  resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.15.3.tgz#5d9e0a8e30ecc51dc755b7a3b9d6b6ed5e2dd08c"
+
 react-native-side-menu@^0.20.1:
   version "0.20.3"
   resolved "https://registry.yarnpkg.com/react-native-side-menu/-/react-native-side-menu-0.20.3.tgz#5dffe3e237018360ed081433d505ea454cba9ca4"

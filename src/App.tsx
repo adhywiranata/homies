@@ -11,6 +11,7 @@ import Header from './components/core/Header';
 import HistoryListScreenContainer from './containers/HistoryListScreenContainer';
 import HomeScreenContainer from './containers/HomeScreenContainer';
 import ProfileScreenContainer from './containers/ProfileScreenContainer';
+import AroundMeContainer from './containers/AroundMeContainer';
 import PropertyDetailScreenContainer from './containers/PropertyDetailScreenContainer';
 
 interface Props {
@@ -66,6 +67,7 @@ const MainNavigator = DrawerNavigator({
   Home: { screen: MainHomeNavigator },
   Profile: { screen: renderScreen(ProfileScreenContainer) },
   History: { screen: renderScreen(HistoryListScreenContainer) },
+  MapAroundMe: { screen: renderScreen(AroundMeContainer) },
   ScoutPlanner: { screen: renderScreen(HistoryListScreenContainer) },
   BeASeller: { screen: renderScreen(HistoryListScreenContainer) },
   Logout: { screen: renderScreen(HistoryListScreenContainer) },
