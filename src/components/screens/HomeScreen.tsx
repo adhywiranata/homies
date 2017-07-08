@@ -14,7 +14,7 @@ interface Props {
   toggleModalVisibility: any;
   toggleRumahCategoryFilter: any;
   toggleSearchModalVisibility: any;
-  houseData: any;
+  propertyData: any;
 }
 
 export default ({
@@ -25,7 +25,7 @@ export default ({
   toggleModalVisibility,
   toggleRumahCategoryFilter,
   toggleSearchModalVisibility,
-  houseData,
+  propertyData,
 }: Props) => {
   const renderItem = ({item}) => <PropertyItem navigation={navigation} {...item} />;
   return (
@@ -34,7 +34,7 @@ export default ({
         toggleModalVisibility={toggleModalVisibility}
       />
       <FlatList
-        data={houseData}
+        data={propertyData}
         renderItem={renderItem}
         style={{ padding: 10, height: '85%' }}
       />

@@ -10,26 +10,27 @@ export interface Props {
   toggleSearchModalVisibility: any;
 }
 export interface State {
+  propertyData: any;
   modalVisible: boolean;
   displayRumahCategory: boolean;
   isFetchingPropertyData: boolean;
   fetchPropertyDataSuccess: boolean;
 }
 
-const houseData = [
-  {key: 'a'},
-  {key: 'b'},
-  {key: 'c'},
-  {key: 'd'},
-  {key: 'e'},
-  {key: 'f'},
-  {key: 'g'},
-  {key: 'h'},
-  {key: 'i'},
-  {key: 'j'},
-  {key: 'k'},
-  {key: 'l'},
-];
+// const houseData = [
+//   {key: 'a'},
+//   {key: 'b'},
+//   {key: 'c'},
+//   {key: 'd'},
+//   {key: 'e'},
+//   {key: 'f'},
+//   {key: 'g'},
+//   {key: 'h'},
+//   {key: 'i'},
+//   {key: 'j'},
+//   {key: 'k'},
+//   {key: 'l'},
+// ];
 
 export default class extends React.Component<Props, State> {
   static navigationOptions = () => ({
@@ -39,6 +40,7 @@ export default class extends React.Component<Props, State> {
   constructor() {
     super();
     this.state = {
+      propertyData: [],
       modalVisible: false,
       displayRumahCategory: true,
       isFetchingPropertyData: true,
@@ -85,7 +87,11 @@ export default class extends React.Component<Props, State> {
     .then((response) => {
       const properties = response.data.data.properties;
       console.log(properties);
-      this.setState({ isFetchingPropertyData: false, fetchPropertyDataSuccess: true });
+      this.setState({
+        propertyData: properties.map(property => ({...property, key: property.id })),
+        isFetchingPropertyData: false,
+        fetchPropertyDataSuccess: true,
+      });
     })
     .catch((error) => {
       console.log(error);
@@ -103,14 +109,14 @@ export default class extends React.Component<Props, State> {
 
   render() {
     const { navigation, searchModalVisible, toggleSearchModalVisibility } = this.props;
-    const { modalVisible, displayRumahCategory, isFetchingPropertyData, fetchPropertyDataSuccess } = this.state;
+    const { propertyData, modalVisible, displayRumahCategory, isFetchingPropertyData, fetchPropertyDataSuccess } = this.state;
     if(isFetchingPropertyData) {
       return <ActivityIndicator size={'large'} style={{ marginTop: 20 }} />
     }
     if(!isFetchingPropertyData && fetchPropertyDataSuccess) {
       return (
         <HomeScreen
-          houseData={houseData}
+          propertyData={propertyData}
           navigation={navigation}
           modalVisible={modalVisible}
           displayRumahCategory={displayRumahCategory}
