@@ -65,8 +65,8 @@ const MainHomeNavigator = StackNavigator({
 });
 
 const MainNavigator = DrawerNavigator({
-  Signin: { screen: SigninContainer },
   Home: { screen: MainHomeNavigator },
+  Signin: { screen: SigninContainer },
   Profile: { screen: renderScreen(ProfileScreenContainer) },
   History: { screen: renderScreen(HistoryListScreenContainer) },
   MapAroundMe: { screen: renderScreen(AroundMeContainer) },
